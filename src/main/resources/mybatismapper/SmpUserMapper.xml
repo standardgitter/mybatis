@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sanayard.mybatis.SmpUserDao" >
+    <resultMap id="BaseResultMap" type="com.sanayard.mybatis.SmpUserPo" >
+        <id column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
+        <result column="pay_password" property="payPassword" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="INTEGER" />
+        <result column="update_date" property="updateDate" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        user_id, user_name, login_password, pay_password, create_date, update_date
+    </sql>
+
+    <select id="getByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM smp_user
+        WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert" parameterType="com.sanayard.mybatis.SmpUserPo" >
+        INSERT INTO
+        smp_user
+        (user_id, user_name, login_password, pay_password, create_date, update_date)
+        VALUES
+        (#{userId}, #{userName}, #{loginPassword}, #{payPassword}, #{createDate}, #{updateDate})
+    </insert>
+
+    <update id="updateByUserId" parameterType="com.sanayard.mybatis.SmpUserPo" >
+        UPDATE
+        smp_user
+        <set>
+        <if test="userName != null">user_name = #{userName},</if>
+        <if test="loginPassword != null">login_password = #{loginPassword},</if>
+        <if test="payPassword != null">pay_password = #{payPassword},</if>
+        <if test="createDate != null">create_date = #{createDate},</if>
+        <if test="updateDate != null">update_date = #{updateDate},</if>
+        </set>
+        WHERE
+        user_id = #{userId}
+    </update>
+
+    <delete id="deleteByUserId" parameterType="java.lang.Long" >
+        DELETE FROM
+        smp_user
+        WHERE
+        user_id =#{userId}
+    </delete>
+
+</mapper>
