@@ -7,3 +7,5 @@ fetche & merge
 
 
 remote add local
+
+newd 20190527
