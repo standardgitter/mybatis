@@ -1,5 +1,6 @@
 dev
 
+<<<<<<< HEAD
 dev222200000
 
 
@@ -8,4 +9,8 @@ fetche & merge
 
 remote add local
 
+=======
+
+
+>>>>>>> f3f2eb18c9efd2661f0315ebb6a69dec708e0031
 newd 20190527
