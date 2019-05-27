@@ -7,3 +7,5 @@ fetche & merge
 
 
 remote add local
+
+git try merge again
