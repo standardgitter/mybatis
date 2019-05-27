@@ -3,4 +3,4 @@ dev
 dev222200000
 
 
-fetche
+fetche & merge
