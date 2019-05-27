@@ -6,4 +6,4 @@ dev222200000
 fetche & merge
 
 
-remote
+remote add local
